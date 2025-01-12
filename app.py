@@ -23,7 +23,6 @@ def predict():
     magnitude = float(data['magnitude'])
     cdi = float(data['cdi'])
     mmi = float(data['mmi'])
-    tsunami = int(data['tsunami'])
     sig = int(data['sig'])
     nst = int(data['nst'])
     dmin = float(data['dmin'])
@@ -41,7 +40,6 @@ def predict():
         "magnitude": magnitude,
         "cdi": cdi,
         "mmi": mmi,
-        "tsunami": tsunami,
         "sig": sig,
         "nst": nst,
         "dmin": dmin,
@@ -70,7 +68,7 @@ def predict():
 
     # Make prediction
     prediction = model.predict(input_df)[0]
-    result = "Tsunami" if prediction == 1 else "No Tsunami"
+    result = "Tsunami" if prediction == 1 else "Earthquake"
 
     return jsonify({"Prediction": result})
 
